@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BikeNGo</title> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Google Maps JavaScript library -->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyCiZqGZa7hTQuBGFyTJc-SzLpuJiwh_0tU"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<style>
+#search_input {
+    font-size:18px;
+}
+.form-group{
+ margin-bottom: 10px;margin-top:100px;
+}
+.form-group label{
+ font-size:18px;
+ font-weight: 600;
+ 
+}
+.form-group input{
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-group input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+.btn {
+  background-color: #f04f1f;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 20px;
+}
+.bottom{
+    background-color: #000;
+    color: #fff;
+    margin-top:50px;
+    padding: 72px;
+    text-align: center;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header{
+    background-color: #000;
+    color: #fff;
+    font-family: Poppins;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+.nav-bar .nav-item{
+    list-style: none;
+}
+.nav-bar li{
+    list-style: none;
+    display: inline-block;
+    padding: 0px 20px;
+    text-style: none;
+    text-transform: uppercase;
+    
+}
+.logo{
+    cursor: pointer;
+}
+.nav-bar li a{
+    transition: all 0.3s ease 0s;
+    color: #fff;
+    text-style: none;
+}
+.nav-bar li a:hover{
+    color: #f04f1f;
+}
+.btn1 {
+  background-color: #f04f1f;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 20px;
+}
+.alert{
+  text-align: center;
+  padding: 10px;
+  background: #79c879;
+  color: #fff;
+  margin-bottom: 10px;
+  display: none;
+</style>
+<link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+<body>
+        <header>
+        
+            <img src="img/logo.png" width="250px" class="logo">
+            <nav>
+            <ul class="nav-bar">
+                <li class = "nav-item">
+                <a href="/" style="text-decoration:none">Home</a>
+                </li>
+                <li class = "nav-item">
+                <a href="/history" style="text-decoration:none">History</a>
+                </li>
+                <li class = "nav-item">
+                <a href="/terms-and-conditions" style="text-decoration:none">Terms and Conditions</a>
+                </li>
+                
+                <a href="/wallet" style="text-decoration:none;text-style: none;color:#fff; text-transform: uppercase;">
+                <button class="btn1">
+                <i class="fas fa-wallet" style="font-size:20px;"></i>
+                 Wallet</a>
+                 </button>
+                
+            </nav>
+        </header>
+    <div class="container">
+        <div class="row">
+        <center>
+        <h2 style="font-family: Poppins;"><u>COS (OAT) to NEW LIBRARY</u></h2>
+        </center>
+            <div class="form-group">
+                <form id="cos-g" onsubmit="return false">
+                    <label for ="origin">Origin:</label>
+                    <select name="search_input" id="origin" class ="form-control">
+                        <option value="" disabled selected>COS (OAT)</option>
+                    </select>
+	                <label for ="destination">Destination:</label>
+                    <select name="search_input" id="origin" class ="form-control">
+                        <option value="" disabled selected>NEW LIBRARY</option>
+                    </select>
+                    <br>
+                    <center>
+                         <button type="submit" class="btn">Get an Estimate </button>                      
+                        <button class="btn" type="book" form="nameform" value="Submit">Book Ride</button>
+                   
+                    </center>
+                    <br>
+                    <div class ="alert"><p>The Estimate Price for your Ride is : <b>₹ 10/-</b></div>
+                 </form>
+            </div>
+        </div>
+        <br>
+        <br>
+        <iframe width="100%" height="450" frameborder="2" style="border:0"
+        src="https://www.google.com/maps/embed/v1/directions?origin=Cos%20Thapar%20University&destination=new%20library%20Thapar%20University&key=AIzaSyCiZqGZa7hTQuBGFyTJc-SzLpuJiwh_0tU" allowfullscreen></iframe>
+    </div>
+
+
+        
+
+    <footer class="bottom">
+        <img src="img/logo.png" width="250px" class="logo">
+        <p>Copyright &copy - Made by Group Number 
+    </footer>
+<script src="main.js"></script>
+</body>
+</html>
