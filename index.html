@@ -102,6 +102,14 @@ header{
   font-size: 12px;
   border-radius: 20px;
 }
+.alert{
+  text-align: center;
+  padding: 10px;
+  background: red;
+  color: #fff;
+  margin-bottom: 10px;
+  display: none;
+}
 </style>
 <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
@@ -133,7 +141,7 @@ header{
     <div class="row">
    <!-- Autocomplete location search input --> 
    <div class="form-group">
-   <form class="orides">
+   <form id="rides">
     <label for ="origin">Set Origin:</label>
     <select name="search_input" id="origin" class ="form-control">
         <option value="" disabled selected>Select Origin</option>
@@ -143,7 +151,7 @@ header{
         <option value="nlib">New Library</option>
     </select>
 	<label for ="destination">Set Destination:</label>
-    <select name="search_input" id="origin" class ="form-control">
+    <select name="search_input" id="destination" class ="form-control">
         <option value="" disabled selected>Select Origin</option>
         <option value="cos">COS (OAT)</option>
         <option value="gblock">G - Block Cafeteria</option>
@@ -152,8 +160,10 @@ header{
     </select>
     <br>
     <center>
-    <button class="btn" type="submit" form="nameform" value="Submit">Submit</button>
+        <button type="submit" class="btn">Submit</button>    
     </center>
+    <br>
+     <div class ="alert"><p>Origin and Destination cannot be the same!</div>
     </form>
    </div>
      </div>
@@ -184,6 +194,6 @@ src="https://www.google.com/maps/embed/v1/directions?origin=Thapar%20University&
         <img src="img/logo.png" width="250px" class="logo">
         <p>Copyright &copy - Made by Group Number 
     </footer>
-
+<script src="main1.js"></script>
 </body>
 </html>
