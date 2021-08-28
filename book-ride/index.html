@@ -1,0 +1,144 @@
+<!--om namah shivay-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#000" />
+    <title>BikeNGo - Bike Sharing App</title>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css"/>
+    <link
+      rel="manifest"
+      href="_manifest.json"
+      data-pwa-version="set_in_manifest_and_pwa_js"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://firebasestorage.googleapis.com/v0/b/bikengo-b86b3.appspot.com/o/logo.PNG?alt=media&token=07ff21fc-6876-419a-8cf7-b12769e70d1a"
+    />
+        <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_4oSD5zCJdh6ZLET29Cb9f");
+   })();
+</script>
+  </head>
+  <body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+   
+    <div id="page">
+      <div class="header header-fixed header-logo-center">
+        <a href="#" class="header-title"><img src ="https://firebasestorage.googleapis.com/v0/b/bikengo-b86b3.appspot.com/o/logo.PNG?alt=media&token=07ff21fc-6876-419a-8cf7-b12769e70d1a" height="50px"></a>
+        <a href="/home" data-back-button class="header-icon header-icon-1"><img src = "https://firebasestorage.googleapis.com/v0/b/bikengo-b86b3.appspot.com/o/back.png?alt=media&token=47276728-cbc0-4e1c-a073-569575cdb8e0" height = "28px"></a>
+        </div>
+    <div id="page">
+      <div id="footer-bar" class="footer-bar-1">
+        <a href="/home" class="active-nav"><img src = "https://bit.ly/3ynMNX3" height="25px"></i><span><u>Home</u></span></a>
+        <a href="/wallet" class="active-nav"><img src = "https://bit.ly/3tWhyiA" height="25px"></i><span>Wallet</span></a>
+        <a href="/" class="active-nav"><img src = "https://bit.ly/3tXnxU9" height="25px"></i><span>Logout</span></a>
+        </div>
+<br>
+<br>
+<br>
+            <div class="splide__slide">
+                <div class="card card-style">
+                  <div class="content mb-0">
+                  <center>
+                    <h1>COS(OAT) - G-BLOCK CAFETERIA</h1>
+                    <br>
+                    <br>
+                  </div>
+                </div>
+              </div>
+              <form id="otp-generator" onsubmit="return false">
+               <div class="splide__slide">
+                <div class="card card-style">
+                  <div class="content mb-0">
+                  <center>
+                    <div class="input-style input-style-always-active has-borders no-icon validate-field">
+                      <label for="origin" class="color-blue-dark font-12">Email id *</label>
+                      <input type="email" id="emailid" class ="form-control" required placeholder="Enter your email id.">
+                      <br>
+                    </div>
+                    <button type="button" id="submit" class="btn btn-full bg-green-dark btn-m text-uppercase rounded-sm shadow-l mb-3 mt-4 font-900 submit">Get OTP </button>             
+                  </div>
+                </div>
+              </div>
+              <div class="otp-sent" style="color:white; text-align:center; font-size:24px; background-color:green; padding:10px; margin:70px 100px 70px 100px; border-radius:20px; display:none;">Kindly check your Email id for the OTP!</div>
+              <div class="otp-not-sent" style="color:white; text-align:center; font-size:24px; background-color:red; padding:10px; margin:70px 100px 70px 100px; border-radius:20px; display:none;">There was an error in sending the OTP. Kindly reload the page and try again!</div>
+              </form>
+         <script>         
+            document.getElementById('submit').addEventListener('click', send_OTP);
+            
+            function send_OTP(){
+              var emailid = document.getElementById("emailid").value
+              var firebaseConfig = {
+                apiKey: "AIzaSyAju71HkJoD6660FikrzPDoR-f_vFHUu6I",
+                authDomain: "bikengo-b86b3.firebaseapp.com",
+                databaseURL: "https://bikengo-b86b3-default-rtdb.asia-southeast1.firebasedatabase.app",
+                projectId: "bikengo-b86b3",
+                storageBucket: "bikengo-b86b3.appspot.com",
+                messagingSenderId: "220942046313",
+                appId: "1:220942046313:web:7149ad3373196b2355fef8",
+                measurementId: "G-69E9CLHVHV"
+              };
+            firebase.initializeApp(firebaseConfig);
+            var messagesRef = firebase.database().ref('OTP-codes');
+            
+              var OTP = '';
+              function generateOTP () {
+                
+                var digits = '0123456789';
+                
+                for (let i = 0; i < 4; i++) {
+                  OTP += digits[Math.floor (Math.random () * 10)];
+                }
+                return OTP;
+              }
+                generateOTP ();              
+                saveMessage(OTP);
+                function saveMessage(OTP){
+                var newMessageRef = messagesRef.push();
+                messagesRef.set({
+                  OTP: OTP   
+                  
+                });
+                }
+                var templateParams = {
+                  message: OTP,
+                  emailid: emailid
+              };
+              
+              emailjs.send('service_4j032ae', 'otp_message', templateParams)
+                  .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    document.querySelector('.otp-sent').style.display = 'block';
+                  }, function(error) {
+                    console.log('FAILED...', error);
+                    document.querySelector('.otp-not-sent').style.display = 'block';
+                  });
+          }
+    </script>
+    
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+             <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+
+    <!--<script src ="main.js"></script>-->
+    
+  </body>
+</html>
